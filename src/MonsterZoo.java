@@ -23,30 +23,13 @@ public class MonsterZoo {
 	void move(){
 		this.distance++;
 		cheakEgg();//卵は移動距離が進むと孵化するため，何km移動したかを更新する
-
 		int flg1 = (int)(Math.random()*10);//0,1の場合はズーstation，7~9の場合はモンスター
-
 		//動物園発見時処理
 		seeZooStation(flg1);
-
 		//モンスター発見時処理
-		if(!(flg1<=1) && flg1>=7){
-			int m = randomMonsterNum();//monsterZukanからランダムにモンスターを出す
-			System.out.println(this.monsterZukan[m]+"が現れた！");
-			for(int i=0;i<3&&this.balls>0;i++){//捕まえる or 3回ボールを投げるまで繰り返す
-				attackMonster(m);
-				//モンスター遭遇時処理
-				boolean flag = false;
-				flag = catchMonster(m,r);
-				if(flag = true)break;
-				escapeMonster(m,r);
-			}
-		}
-
+		DiscoveryMonster(flg1);
 		//卵処理and終了処理
-		for(int i=0;i<this.egg.length;i++){
-			eggSet(i);
-		}
+		DiscoveryEgg();
 	}
 
 	public double getDistance() {
@@ -201,6 +184,12 @@ public class MonsterZoo {
 		}
 	}
 
+	public void DiscoveryEgg(){
+		for(int i=0;i<this.egg.length;i++){
+			eggSet(i);
+		}
+	}
+
 	//monster
 	public boolean catchMonster(int m,int r){
 		if(this.monsterRare[m]<=r){//monsterRare[m]の値がr以下の場合
@@ -228,6 +217,28 @@ public class MonsterZoo {
 		useBalls(m);
 	}
 
+	public void printMonster(int m){
+		System.out.println(this.monsterZukan[m]+"が現れた！");
+	}
+
+	public void challengeMonster(int m){
+		for(int i=0;i<3&&this.balls>0;i++){//捕まえる or 3回ボールを投げるまで繰り返す
+			attackMonster(m);
+			//モンスター遭遇時処理
+			boolean flag = false;
+			flag = catchMonster(m,r);
+			if(flag = true)break;
+			escapeMonster(m,r);
+		}
+	}
+
+	public void DiscoveryMonster(int flg1){
+		if(!(flg1<=1) && flg1>=7){
+			int m = randomMonsterNum();//monsterZukanからランダムにモンスターを出す
+			printMonster(m);
+			challengeMonster(m);
+		}
+	}
 
 
 
