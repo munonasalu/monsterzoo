@@ -6,18 +6,6 @@ import org.omg.CORBA.StringHolder;
 public class MonsterZoo {
 	double distance=0.0;//歩いた距離
 
-
-	//ユーザがGetしたモンスター一覧
-	//String userMonster[] = new String[100];
-	List<String> userMonster = new ArrayList<String>();
-
-	//モンスター図鑑．モンスターの名前とレア度(0.0~9.0)がそれぞれの配列に保存されている
-	//レア度が高いほうが捕まえにくい
-	//String monsterZukan[] = new String[22];
-	List<String> monsterZukan = new monsterZukan<String>();
-	//double monsterRare[] = new double[22];
-	List<double> monsterRare = new monsterRare<double>();
-
 	//呼び出すと1km distanceが増える
 	void move(){
 		this.distance++;
@@ -57,12 +45,6 @@ public class MonsterZoo {
 
 	// judge
 
-
-
-
-
-
-
 	public boolean judgeUserMonsterzukan(int j,int m) {
 		if(this.userMonster.get(j)==null){
 			this.userMonster.set(j,this.monsterZukan.get(m));
@@ -78,7 +60,6 @@ public class MonsterZoo {
 			if(flag = true)break;
 		}
 	}
-
 
 	//seeZOO
 	public void seeZooStation(int flg1){

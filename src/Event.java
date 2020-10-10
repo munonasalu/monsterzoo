@@ -1,5 +1,16 @@
 public class Event{
 
+  	//ユーザがGetしたモンスター一覧
+  	//String userMonster[] = new String[100];
+  	List<String> userMonster = new ArrayList<String>();
+
+  	//モンスター図鑑．モンスターの名前とレア度(0.0~9.0)がそれぞれの配列に保存されている
+  	//レア度が高いほうが捕まえにくい
+  	//String monsterZukan[] = new String[22];
+  	List<String> monsterZukan = new monsterZukan<String>();
+  	//double monsterRare[] = new double[22];
+  	List<double> monsterRare = new monsterRare<double>();
+
     public void discoveryMonster(int flg1){
   		if(!(flg1<=1) && flg1>=7){
   			int m = randomMonsterNumber();//monsterZukanからランダムにモンスターを出す
