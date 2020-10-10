@@ -13,7 +13,7 @@ public class Egg{
 
   public void judgeEggTrue(int i) {
     if(this.egg.get(i)==true){
-      this.eggDistance.set(i,this.eggDistance.get(i)+1)
+      this.eggDistance.set(i,this.eggDistance.get(i)+1);
     }
   }
 
