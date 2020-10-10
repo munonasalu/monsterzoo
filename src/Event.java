@@ -27,13 +27,13 @@ public class Event{
     }
 
     public void printMonster(int m){
-      System.out.println(this.monsterZukan[m]+"が現れた！");
+      System.out.println(this.monsterZukan.get(i)+"が現れた！");
     }
 
     //monster
     public boolean catchMonster(int m,int r){
-      if(this.monsterRare[m]<=r){//monsterRare[m]の値がr以下の場合
-        System.out.println(this.monsterZukan[m]+"を捕まえた！");
+      if(this.monsterRare.get(i)<=r){//monsterRare[m]の値がr以下の場合
+        System.out.println(this.monsterZukan.get(i)+"を捕まえた！");
         judgeUserMonsterzukanAll(m);
         return true;//ボール投げ終了
       }
@@ -41,8 +41,8 @@ public class Event{
     }
 
     public void escapeMonster(int m,int r){
-      if(!(this.monsterRare[m]<=r)){
-        System.out.println(this.monsterZukan[m]+"に逃げられた！");
+      if(!(this.monsterRare.get(i)<=r)){
+        System.out.println(this.monsterZukan.get(i)+"に逃げられた！");
       }
     }
 
@@ -50,6 +50,15 @@ public class Event{
       return (int)(this.monsterZukan.size()*Math.random());//monsterZukanからランダムにモンスターを出す
     }
 
+    //set number
+  	public void setItemEgg() {
+  		int b=(int)(Math.random()*3);//ball,fruits,eggがランダムに出る
+  		int f=(int)(Math.random()*2);
+  		int e=(int)(Math.random()*2);
+  		System.out.println("ボールを"+b+"個，"+"フルーツを"+f+"個"+"卵を"+e+"個Getした！");
+  		addItemAll(b,f);
+  		ifGetEgg(e);
+  	}
 
 
 
